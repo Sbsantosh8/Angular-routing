@@ -1,0 +1,22 @@
+<!-- <p>User Details</p>
+
+
+<strong>Name:</strong> {{ userData.name }} <br>
+ -->
+
+
+ <h2>User Details</h2>
+
+<div *ngIf="userData; else notFound">
+  <ul>
+    <li *ngFor="let key of userData | keyvalue" (click)="logKeyValue(key)">
+      <strong>{{ key.key }}:</strong> {{ key.value }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #notFound>
+  <p>User not found.</p>
+</ng-template>
+
+<a routerLink="/users">Back to Users List</a>
